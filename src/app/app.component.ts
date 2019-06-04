@@ -1,4 +1,4 @@
-import { Component,  OnDestroy } from '@angular/core';
+import { Component} from '@angular/core';
 import {TimerService} from './service/timer.service';
 import {Subject, Subscription, timer} from 'rxjs';
 import {map, scan, share, takeUntil} from 'rxjs/operators';
@@ -14,9 +14,9 @@ export class AppComponent {
 
   tick = 0 ;
   title = 'iteam';
-  secDispl : number = 0;
-  minDispl : number = 0;
-  hourDispl : number = 0;
+  secDispl ;
+  minDispl ;
+  hourDispl;
   sec: Subscription;
   count: boolean = false;
   stopPlay$ : Subject<any> = new Subject();
@@ -38,12 +38,14 @@ export class AppComponent {
         )
         .subscribe(
           () => {
+
             this.secDispl = this.timerService.getSeconds(this.tick);
             this.minDispl = this.timerService.getMinutes(this.tick);
             this.hourDispl = this.timerService.getHours(this.tick);
+
           }
         );
-      this.count = !this.count
+      this.count = !this.count;
     }
 
     else {

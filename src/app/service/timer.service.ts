@@ -6,19 +6,19 @@ import {Observable} from 'rxjs';
 @Injectable()
 export class TimerService {
 
-  getSeconds(time: number) : Observable<Timer> {
+  getSeconds(time: number): Observable<Timer> {
 
     return this.pad(time % 60);
 
 
   }
 
-  getMinutes(time: number) : Observable<Timer> {
+  getMinutes(time: number) : Observable<number> {
 
     return this.pad((Math.floor(time / 60)) % 60);
   }
 
-  getHours(time: number) : Observable<Timer> {
+  getHours(time: number) : Observable<number> {
 
     return this.pad(Math.floor((time / 60) / 60));
 
